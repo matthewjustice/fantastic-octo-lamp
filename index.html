@@ -10,7 +10,7 @@
   <body>
     <header class="site-header">
       <a class="wordmark" href="#">octo<span>☼</span>lamp</a>
-      <a class="nav-link" href="#story">Meet your new desk mate <span aria-hidden="true">↗</span></a>
+      <a class="nav-link" href="#arcade">Play Octo Pong <span aria-hidden="true">↗</span></a>
     </header>
 
     <main>
@@ -40,6 +40,39 @@
         </div>
       </section>
 
+      <section class="arcade" id="arcade" aria-labelledby="arcade-title">
+        <div class="arcade-heading">
+          <div><p class="eyebrow">A LITTLE FRIENDLY COMPETITION</p><h2 id="arcade-title">Eight arms. Endless rallies.</h2></div>
+          <p>Our desk mate has a competitive streak.<br>Keep the little glow in play. First to 7 wins.</p>
+        </div>
+        <div class="game-shell">
+          <div class="game-topbar">
+            <span class="arcade-brand">OCTO PONG <span>DEEP-SEA ARCADE / 008</span></span>
+            <label class="difficulty-label">Current <select id="difficulty"><option value="easy">Gentle</option><option value="normal" selected>Wavy</option><option value="hard">Wild</option></select></label>
+          </div>
+          <div class="scoreboard" aria-label="Match score">
+            <div><span>YOU</span><strong id="player-score">0</strong></div>
+            <span class="score-divider" aria-hidden="true">✧</span>
+            <div><span>THE DEEP</span><strong id="computer-score">0</strong></div>
+          </div>
+          <div class="court-wrap">
+            <canvas id="pong" width="960" height="500" tabindex="0" aria-label="Octo Pong court. Move your left paddle with W and S or the up and down arrow keys, or drag on the court. Space pauses the game." aria-describedby="game-help">Your browser needs canvas support to play Octo Pong.</canvas>
+            <div class="game-overlay" id="game-overlay">
+              <span class="overlay-eyebrow" id="overlay-eyebrow">READY, SET, GLOW.</span>
+              <h3 id="overlay-title">Make some waves.</h3>
+              <p id="overlay-copy">You, an octo lamp, and a very good rally.</p>
+              <button class="button game-start" id="start-game" type="button">Let’s play <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+          <div class="game-toolbar">
+            <p id="game-status" role="status" aria-live="polite">Your ocean arena awaits.</p>
+            <div><button id="pause-game" type="button" disabled>Pause</button><button id="restart-game" type="button">New match</button><button id="sound-game" type="button" aria-pressed="false">Sound: off</button></div>
+          </div>
+        </div>
+        <div class="game-notes" id="game-help"><p><span>HOW TO GLOW</span> Move with <kbd>↑</kbd> <kbd>↓</kbd> or <kbd>W</kbd> <kbd>S</kbd>. Mouse or touch works too. <kbd>Space</kbd> to pause.</p><p>Catch the edge of your paddle to add a little spin.</p></div>
+        <noscript><p>Turn on JavaScript to play Octo Pong.</p></noscript>
+      </section>
+
       <section class="story" id="story" aria-labelledby="story-title">
         <div><p class="eyebrow">SMALL CREATURE. BIG PERSONALITY.</p><h2 id="story-title">A soft spot for<br>the wonderfully weird.</h2></div>
         <div class="story-copy"><p>Some ideas come from a light bulb. This one came from an octopus. Imagine a softly glowing dome, a tangle of peachy tentacles, and a tiny face that always seems pleased to see you.</p><p>Part deep-sea daydream, part reading-nook companion. The Fantastic Octo Lamp is a celebration of everyday objects with a little more character.</p></div>
@@ -52,5 +85,6 @@
       </section>
     </main>
     <footer><a class="wordmark" href="#">octo<span>☼</span>lamp</a><p>Dreamed up on land. Inspired by the sea.</p><span>STAY CURIOUS ↗</span></footer>
+    <script src="game.js" defer></script>
   </body>
 </html>
