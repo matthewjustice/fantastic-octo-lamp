@@ -45,7 +45,7 @@
     }
     state = 'playing'; $('game-overlay').hidden = true;
     $('pause-game').disabled = false; $('pause-game').textContent = 'Pause';
-    $('game-status').textContent = 'Keep that little glow going. First to 7!';
+    $('game-status').textContent = `Keep that little glow going. First to ${$('winning-score').value}!`;
     canvas.focus({ preventScroll: true });
   }
   function pause() {
@@ -60,7 +60,8 @@
     $('player-score').textContent = player.score;
     $('computer-score').textContent = computer.score;
     tone(winner === player ? 660 : 180, 0.22);
-    if (winner.score === 7) {
+    const winningScore = Number($('winning-score').value);
+    if (winner.score > winningScore) {
       state = 'over'; $('pause-game').disabled = true;
       const won = winner === player;
       $('game-status').textContent = `${won ? 'You win!' : 'The Deep wins!'} Final score: ${player.score}–${computer.score}.`;
@@ -160,7 +161,7 @@
   document.addEventListener('visibilitychange', () => { if (document.hidden && state === 'playing') pause(); });
   $('start-game').addEventListener('click', start);
   $('pause-game').addEventListener('click', pause);
-  $('restart-game').addEventListener('click', () => { state = 'ready'; start(); });
+  $('restart-game').addEventListener('click', start);
   $('difficulty').addEventListener('change', () => { $('game-status').textContent = 'Current changed. Start or resume when you’re ready.'; });
   $('sound-game').addEventListener('click', () => {
     try {
