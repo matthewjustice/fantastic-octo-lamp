@@ -1,5 +1,11 @@
 # Fantastic Octo Lamp
 
-A simple, responsive HTML/CSS page about an imaginary octopus-shaped lamp.
+A responsive site about an imaginary octopus-shaped lamp, with Octo Pong: a glowing, ocean-inspired browser game.
 
-Open `index.html` in a browser to view the site. No build step or JavaScript is required. The lamp illustration is made entirely with CSS. Google Fonts are optional; the page uses system fallback fonts when offline.
+Open `index.html` in a browser to view the site and play. No installation or build step is required. The game uses JavaScript and canvas; the original lamp illustration is made entirely with CSS. Google Fonts are optional; the page uses system fallback fonts when offline.
+
+## Octo Pong
+
+Choose a current (Gentle, Wavy, or Wild), then select **Let’s play**. Move your paddle with **W / S**, **↑ / ↓**, your mouse, or by dragging on the court. Hit with the paddle’s edges to change the angle. First to **7** wins.
+
+Press **Space** while the court is focused to pause or resume. The game also pauses when you switch windows or tabs. Use **New match** to reset the score. Sound is optional and off by default. The game supports reduced-motion preferences.
