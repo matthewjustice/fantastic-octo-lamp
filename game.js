@@ -11,6 +11,7 @@
   const ball = { x: W / 2, y: H / 2, vx: 0, vy: 0 };
   let state = 'ready', lastTime = 0, serveDelay = 0, rally = 0, sound = false, audio;
   let particles = [], trail = [];
+  const replayFrames = [];
   const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -74,6 +75,7 @@
   }
   function hit(paddle, direction) {
     const offset = clamp((ball.y - paddle.y) / (paddleHeight / 2), -1, 1);
+    // Every paddle hit preserves the original serve speed of 370 pixels per second.
     const speed = Math.min(760, Math.hypot(ball.vx, ball.vy) + 25);
     ball.vx = direction * speed * Math.cos(offset * 1.02);
     ball.vy = speed * Math.sin(offset * 1.02);
@@ -138,6 +140,7 @@
     const dt = Math.min((timestamp - lastTime) / 1000 || 0, 0.033); lastTime = timestamp;
     if (state === 'playing') update(dt);
     draw(state === 'playing' ? timestamp / 1000 : 0);
+    replayFrames.push(canvas.toDataURL('image/png'));
     requestAnimationFrame(frame);
   }
   canvas.addEventListener('keydown', event => {
@@ -152,7 +155,7 @@
   function movePointer(event) {
     if (state !== 'playing') return;
     const rect = canvas.getBoundingClientRect();
-    player.y = clamp((event.clientY - rect.top) / rect.height * H, paddleHeight / 2, H - paddleHeight / 2);
+    player.y = clamp(event.clientY - rect.top, paddleHeight / 2, H - paddleHeight / 2);
   }
   canvas.addEventListener('pointerdown', event => { canvas.focus({ preventScroll: true }); canvas.setPointerCapture(event.pointerId); movePointer(event); });
   canvas.addEventListener('pointermove', movePointer);
