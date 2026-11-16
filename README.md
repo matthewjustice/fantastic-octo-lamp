@@ -1,6 +1,6 @@
 # Fantastic Octo Lamp
 
-A responsive site about an imaginary octopus-shaped lamp, with Octo Pong: a glowing, ocean-inspired browser game.
+A responsive site about an imaginary octopus-shaped lamp, with Octo Pong: a glowing, ocean-inspired browser game!
 
 Open `index.html` in a browser to view the site and play. No installation or build step is required. The game uses JavaScript and canvas; the original lamp illustration is made entirely with CSS. Google Fonts are optional; the page uses system fallback fonts when offline.
 
